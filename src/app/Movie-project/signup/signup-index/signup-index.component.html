@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="row">
+    <div class="col-5 mx-auto">
+      <form #formSignup="ngForm" (submit)="signupUserHandler(formSignup)">
+        <h4 class="display-4">Đăng Ký</h4>
+        <div class="form-group">
+          <label for="">Tài Khoản</label>
+          <!-- đặt tên cho input để validate -->
+          <input
+            type="text"
+            name="taiKhoan"
+            ngModel
+            class="form-control"
+            required
+            #taiKhoan="ngModel"
+          />
+          <!-- validate các lỗi -->
+          <div *ngIf="taiKhoan.errors && (taiKhoan.dirty || taiKhoan.touched)">
+            <div *ngIf="taiKhoan.errors.required" class="alert alert-danger">
+              Vui lòng nhập tài khoản
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="">Mật Khẩu</label>
+          <input
+            type="password"
+            required
+            pattern="[0-9]*"
+            minlength="8"
+            maxlength="16"
+            name="matKhau"
+            ngModel
+            #matKhau="ngModel"
+            class="form-control"
+          />
+          <!-- validate các lỗi -->
+          <div *ngIf="matKhau.errors && (matKhau.dirty || matKhau.touched)">
+            <div *ngIf="matKhau.errors.required" class="alert alert-danger">
+              Vui lòng nhập mật khẩu
+            </div>
+            <div
+              *ngIf="
+                (matKhau.errors.minlength || matKhau.errors.maxlength) &&
+                !matKhau.errors.pattern
+              "
+              class="alert alert-danger"
+            >
+              Mật Khẩu phải có từ 8-16 kí tự
+            </div>
+            <div *ngIf="matKhau.errors.pattern" class="alert alert-danger">
+              Mật khẩu nhập vào phải là số
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="">Họ Tên: </label>
+          <input type="text" name="hoTen" ngModel class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="">Email</label>
+          <input type="email" name="email" ngModel class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="">Số ĐT</label>
+          <input type="text" name="soDt" ngModel class="form-control" />
+        </div>
+        <div class="form-group">
+          <button
+            class="btn btn-success"
+           
+            [disabled]="formSignup.invalid"
+          >
+            Đăng Ký
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<h2>Register form</h2>
+<p>Email</p>
+<input type="text" id="email" [(ngModel)]="email">
+<p>Fullname</p>
+<input #fullname type="text" id="email">
+<br>
+<button (click)="fullnameChangeHandler(fullname.value)">Submit</button>
+
+<p>Email: {{email}}</p>
+<p>Fullname: {{fullnameInput}}</p>

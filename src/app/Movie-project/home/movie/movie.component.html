@@ -1,0 +1,8 @@
+<div class="card p-2 mb-3">
+    <img [src]="movieItem.hinhAnh" class="img-fluid" style="height: 250px;"/>
+    <p class="lead">{{movieItem.tenPhim | uppercase}}</p>
+    <p>{{movieItem.moTa?.substr(0, 60)+ '...' | lowercase}}</p>
+    <p>{{movieItem.danhGia}}</p>
+    <p>Ngày công chiếu: {{movieItem?.ngayKhoiChieu}}</p>
+    <button class="btn btn-success" [routerLink]="'/detail/' + movieItem.maPhim">Đặt vé</button>
+</div>

@@ -1,0 +1,26 @@
+<h1>DEMO ONEWAY BINDING</h1>
+<h4>DEMO INTERPOLATION</h4>
+<p>Tên sinh viên: {{name}}</p>
+
+<h4>PROPERTY BINDING</h4>
+<input [value]="name" [disabled]="isDisable"/>
+<!-- binding theo thuộc tính của thẻ -->
+
+<div [innerHTML]="name"></div>
+
+<button (click)="showMessage()">Show Message</button> <br>
+
+<input type="text" id="email" (keyup)="changeEmailHandler($event)"/>
+
+<!-- có biến hiện ra màn hình => interpolation -->
+<!-- khi nào có biến gắn vào các ô input thì dùng property binding -->
+<p>Email người dùng nhập: {{email}}</p>
+<br>
+<h1>DEMO TWO WAY BINDING</h1>
+<input type="text" [(ngModel)]="phoneNumber" >
+
+<p>Phone number: {{phoneNumber}}</p>
+<h1>DEMO LOCAL REFERENCES</h1>
+<!-- input username, nhấn button và hiện username ra màn hình -->
+<input #username type="text" id="username" />
+<button (click)="showUsername(username.value)">Submit</button>
